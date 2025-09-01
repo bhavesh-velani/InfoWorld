@@ -20,14 +20,11 @@ const Dashboard = () => {
     }
     const parsedUser = JSON.parse(storedUser);
     setUser(parsedUser);
-
     axios
       .get(`http://localhost:5000/api/dashboard/${parsedUser.id}/${parsedUser.accountType}`)
       .then((res) => setDashboardData(res.data));
-
     axios.get("http://localhost:5000/api/news").then((res) => setNewsData(res.data));
   }, [navigate]);
-
   useEffect(() => {
     if (!dashboardData || newsData.length === 0) return;
     if (user.accountType === "reporter") {
@@ -38,12 +35,10 @@ const Dashboard = () => {
       setUploadedNews(liked);
     }
   }, [dashboardData, newsData, user]);
-
   const handleLogout = () => {
     localStorage.removeItem("user");
     navigate("/login");
   };
-
   if (!user || !dashboardData) {
     return (
       <div className="min-h-screen flex flex-col justify-center items-center bg-cyan-50 px-4">
