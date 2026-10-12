@@ -39,7 +39,7 @@ const transporter = createTransport({
   service: 'gmail',
   auth: {
     user: 'bhaveshvelani324@gmail.com',
-    pass: 'ovaq yflm ujya ymim'
+    pass: 'abcd efgh ijkl mnop'
   }
 });
 
